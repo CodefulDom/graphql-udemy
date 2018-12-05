@@ -19,6 +19,7 @@ const typeDefs = `
 		title: String!
 		body: String!
 		published: Boolean!
+		rating: Float
 	}
 `
 
@@ -41,7 +42,8 @@ const resolvers = {
 				id: 145667,
 				title: 'The Developer Life',
 				body: 'There are many things that I can tell you about what it is like going from McDonald\'s overnight employee, but I can show you much more effectivley.',
-				published: true
+				published: true,
+				rating: 5.0
 			}
 		}
 	}
