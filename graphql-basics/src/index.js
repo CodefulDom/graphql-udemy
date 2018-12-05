@@ -3,26 +3,46 @@ import { GraphQLServer } from "graphql-yoga";
 // Type of Definition
 const typeDefs = `
 	type Query {
-		hello: String!
+		me: User!
+		post: Post!
+	}
+
+	type User {
+		id: ID!
 		name: String!
-		location: String!
-		bio: String!
+		email: String!
+		age: Int
+	}
+
+	type Post {
+		id: ID!
+		title: String!
+		body: String!
+		published: Boolean!
 	}
 `
+
+
+
+
 // Resolvers
 const resolvers = {
 	Query: {
-		hello() {
-			return 'This is my first query, bitch!'
+		me() {
+			return {
+				id: 123098,
+				name: 'Mike Jones',
+				email: 'mikejones@gmail.com',
+				age: 23
+			}
 		},
-		name() {
-			return 'Dominique Hallan'
-		},
-		location() {
-			return 'St. Louis, Missouri'
-		},
-		bio() {
-			return 'I am a developer from small town Kansas. MY work ethic is legendary! I am willing to die on treadmill.'
+		post() {
+			return {
+				id: 145667,
+				title: 'The Developer Life',
+				body: 'There are many things that I can tell you about what it is like going from McDonald\'s overnight employee, but I can show you much more effectivley.',
+				published: true
+			}
 		}
 	}
 }
